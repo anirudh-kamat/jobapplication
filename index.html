@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Job Application Form</title>
+  <style>
+    /* Some basic styling for the form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    #output {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Online Job Application Form</h2>
+    <form id="applicationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    // Get the form element
+    var form = document.getElementById("applicationForm");
+
+    // Add a submit event listener to the form
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the form values
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      // Create a formatted output string
+      var output = "<h3>Application Details:</h3>" +
+                   "<p><strong>Name:</strong> " + name + "</p>" +
+                   "<p><strong>Email:</strong> " + email + "</p>" +
+                   "<p><strong>Message:</strong> " + message + "</p>";
+
+      // Display the output
+      var outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = output;
+
+      // Clear the form
+      form.reset();
+    });
+  </script>
+</body>
+</html>
